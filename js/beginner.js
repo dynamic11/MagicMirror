@@ -9,7 +9,7 @@ app.controller("TimeDateWeatherCtrl", function($scope, $interval, $http) {
         $scope.clock =  moment().format('h:mm a'); // get the current time
         $scope.date =  moment().format('dddd, MMMM Do YYYY');
 
-        var request = {
+        var request1 = {
             method: 'GET',
             url: 'http://api.openweathermap.org/data/2.5/weather',
             params: {
@@ -20,15 +20,33 @@ app.controller("TimeDateWeatherCtrl", function($scope, $interval, $http) {
             }
         };
 
-        $http(request).then(function (response) {
+        var request2 = {
+            method: 'GET',
+            url: 'http://api.openweathermap.org/data/2.5/forecast/daily',
+            params: {
+               q: 'Ottawa',
+              mode: 'json',
+              units: 'metric',
+              appid: '8eee1c035d624944ccda323d1a05d458'
+            }
+        };
+
+        $http(request1).then(function (response) {
             $scope.temp = Math.round(response.data.main.temp); 
             weatherIcon = getWeatherIcon(response.data.weather[0].id);
             $scope.icon = weatherIcon;
-            $scope.high = Math.round(response.data.main.temp_max);
-            $scope.low = Math.round(response.data.main.temp_min);
+            $scope.desc = response.data.weather[0].description;
           }, function (response) {
-            alert("Weather could not be found");
+            alert("Current Weather could not be found");
           });
+
+        $http(request2).then(function (response) {
+            $scope.high = Math.round(response.data.list[0].temp.max);
+            $scope.low = Math.round(response.data.list[0].temp.min);
+
+          }, function (response) {
+            alert("Forecast could not be found");
+        });
 
     }
     getTimeDateWeather();
