@@ -34,10 +34,16 @@ app.controller("TimeDateWeatherCtrl", function($scope, $interval, $http) {
 
         //get current weather
         $http(requestWeather).then(function (response) {
+
+            //get sunrise and sunset time
+            var sunrise = unixTimeToTwentyFourHour(response.data.sys.sunrise);
+            var sunset = unixTimeToTwentyFourHour(response.data.sys.sunset);
+
             $scope.temp = Math.round(response.data.main.temp); 
-            weatherIcon = getWeatherIcon(response.data.weather[0].id);
-            $scope.icon = weatherIcon;
             $scope.desc = response.data.weather[0].description;
+
+            weatherIcon = getWeatherIcon(response.data.weather[0].id, sunrise, sunset);
+            $scope.icon = weatherIcon;
           }, function (response) {
             alert("Current Weather could not be found");
           });
@@ -57,14 +63,14 @@ app.controller("TimeDateWeatherCtrl", function($scope, $interval, $http) {
                
  })
 
-function getWeatherIcon(weatherCode) {
+function getWeatherIcon(weatherCode, sunrise, sunset) {
     var prefix = 'wi wi-';
     var code = weatherCode;
     var icon = weatherIcons[code].icon;
 
     // If we are not in the ranges mentioned above, add a day/night prefix.
     if (!(code > 699 && code < 800) && !(code > 899 && code < 1000)) {
-        if (moment().format('H')>=18 || moment().format('H')<=7){
+        if (moment().format('H')>=sunset || moment().format('H')<=sunrise){
             icon = 'night-' + icon;
         }else{
             icon = 'day-' + icon;
@@ -78,6 +84,14 @@ function getWeatherIcon(weatherCode) {
 
 }
 
+//converts unix time provided by the API to 24h clck
+function unixTimeToTwentyFourHour(UnixTime){
+
+  var d = new Date(UnixTime * 1000); // Convert the passed timestamp to milliseconds
+    hh = d.getHours();
+    return hh;
+
+  }
 // var weatherIcons = JSON.parse( "yourjsonfile.json");
 //  var prefix = 'wi wi-';
 //   var code = resp.weather[0].id;
