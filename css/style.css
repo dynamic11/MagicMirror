@@ -1,26 +1,43 @@
-.weather{
-	font-size: 50px;
-	color:white;
-	//text-align: center;
-	margin-top:30px;
+/***************clock pannel***************/
+.clock{
+	margin:10px 0 0 0;
 }
-.temp-numb{
-	font-size:60px;
-	margin-top:-50px;
-}
-.wi{
-	font-size: 100px;
-	padding: 40px;
+.time{
+	font-size: 60px;
+	margin:10px 0 -10px 0;
+	padding:0;
 }
 .date{
-	font-size: 20px;
+	font-size: 30px;
 	margin:0;
 	padding:0;
 }
-.clock{
-	font-size: 50px;
-	margin:0;
-	padding:0;
+
+/***************weather pannel***************/
+.weather{
+	margin-top: 40px;
+}
+.current-temperature{
+	padding: 15px 0 0 0;
+	font-size: 80px;
+	margin:0px;
+	line-height: 80px;
+}
+.day-temperature {
+	font-size: 25px;
+	font-weight: 100;
+}
+.day-temperature i {
+	font-size: 20px;
+	margin-right:5px;
+}
+.weather-symbol{
+	padding: 25px 0 0 10px;
+	margin:0px 0 0 0;
+	font-size: 110px;
+}
+.description{
+	font-size: 30px;
 }
 
 @keyframes pulse_animation {

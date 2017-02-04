@@ -5,6 +5,8 @@
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/darkly/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/owfont-master/css/owfont-regular.css" >
 	<link rel="stylesheet" type="text/css" href="css/weather-icons-master/css/weather-icons.css" >
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/style.css"/>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -13,14 +15,37 @@
 
 </head>
 <body>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-7">
+		</div>
+		<div class="col-lg-5">
+			<div ng-controller='TimeDateWeatherCtrl'>
+				<div class="row clock">
+				    <p class="time">{{ clock }}</p>
+				    <p class="date">{{ date }}</p>
+				</div>
+		    	<div class="row weather">
+		    		<div class="col-lg-5">
+		    			<i class ="{{icon}} pulse weather-symbol" id="test"></i> 
+		    		</div>
+		    		<div class="col-lg-7 temperature">
+		    			<p class="current-temperature">{{temp}} &#176</p>
+		    			<p class="day-temperature">
+		    				<i class="fa fa-chevron-up"></i>{{high}} &#176
+		    				<i class="fa fa-chevron-down"></i>{{low}} &#176
+		    			</p>
+		    		</div>
+		    		<p class="description">{{desc}}</p>
+		    	</div> 
+			    </div>
+		</div>
+	</div>
+</div>
 
-<div ng-controller='TimeDateWeatherCtrl'>
-    <p class="clock">{{ clock }}</p>
-    <p class="date">{{ date }}</p>
-    <p class="weather"><i class ="{{icon}} pulse" id="test"></i> {{temp}} &#8451 H:{{high}} &#8451 L:{{low}} &#8451</br>
-    	{{desc}}
 
-    </div>
+
+
 
 </body>
 

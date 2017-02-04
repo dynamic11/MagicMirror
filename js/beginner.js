@@ -1,7 +1,6 @@
 var app = angular.module('myApp', []);
 
 app.controller("TimeDateWeatherCtrl", function($scope, $interval, $http) {
-    $scope.clock = "loading clock..."; // initialise the time variable
     var clockInterval = 60000 ;//ms
     var count =0;
     
@@ -9,7 +8,8 @@ app.controller("TimeDateWeatherCtrl", function($scope, $interval, $http) {
         $scope.clock =  moment().format('h:mm a'); // get the current time
         $scope.date =  moment().format('dddd, MMMM Do YYYY');
 
-        var request1 = {
+        //create request for current weather form api
+        var requestWeather = {
             method: 'GET',
             url: 'http://api.openweathermap.org/data/2.5/weather',
             params: {
@@ -20,7 +20,8 @@ app.controller("TimeDateWeatherCtrl", function($scope, $interval, $http) {
             }
         };
 
-        var request2 = {
+        //create request for daily high and low
+        var requestForecast = {
             method: 'GET',
             url: 'http://api.openweathermap.org/data/2.5/forecast/daily',
             params: {
@@ -31,7 +32,8 @@ app.controller("TimeDateWeatherCtrl", function($scope, $interval, $http) {
             }
         };
 
-        $http(request1).then(function (response) {
+        //get current weather
+        $http(requestWeather).then(function (response) {
             $scope.temp = Math.round(response.data.main.temp); 
             weatherIcon = getWeatherIcon(response.data.weather[0].id);
             $scope.icon = weatherIcon;
@@ -40,7 +42,8 @@ app.controller("TimeDateWeatherCtrl", function($scope, $interval, $http) {
             alert("Current Weather could not be found");
           });
 
-        $http(request2).then(function (response) {
+        //get daily high and low from api
+        $http(requestForecast).then(function (response) {
             $scope.high = Math.round(response.data.list[0].temp.max);
             $scope.low = Math.round(response.data.list[0].temp.min);
 
