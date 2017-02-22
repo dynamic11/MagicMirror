@@ -92,7 +92,7 @@ app.controller("eventCtrl", function($scope, $interval, $http) {
           'timeMin': (new Date()).toISOString(),
           'showDeleted': false,
           'singleEvents': true,
-          'maxResults': 10,
+          'maxResults': 5,
           'orderBy': 'startTime'
         }).then(function(response) {
           var events = response.result.items;

@@ -11,9 +11,14 @@
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script async defer src="https://apis.google.com/js/api.js"></script>
+	    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCy9i034B3wFW1FWBMWEcM27UHOrj0pJDI">
+    </script>
 	<script src="js/beginner.js"></script>
 	<script src="js/eventCtrl.js"></script>
+	<script src="js/trafficCtrl.js"></script>
 	<script src="js/moment.js"></script>
+
 
 </head>
 <body>
@@ -42,8 +47,24 @@
 		    	</div> 
 			</div>
 			<div>
+
+			<div class="row traffic">
+				<hr>
+				<h3>Traffic</h3>
+				<div ng-controller='trafficCtrl'>
+					<div class="row">
+						<div class="col-lg-2 traffic-icon">									
+							<i class = "fa fa-car fa-3x"></i>
+						</div>
+						<div class="col-lg-10 traffic-details">
+							<p class="traffic-time"><b>{{ trafficTime }}</b></p>
+				    		<p class="traffic-destination">{{ destination }}</p>
+						</div>	
+					</div>	
+			    </div>		    
+			</div>
 				<!--Add buttons to initiate auth sequence and sign out-->
-				<div class="row events">
+			<div class="row events">
 				<hr>
 					<h3>Upcoming Events</h3>
 					<div ng-controller='eventCtrl'>
@@ -68,9 +89,7 @@
 				    </div>
 				    <button id="authorize-button" class="btn mirror-btn" style="display: none;">Authorize</button>
 			    	<button id="signout-button" class="btn mirror-btn" style="display: none;">Sign Out</button>	
-				</div>
-
-			    
+				</div>  
 			</div>
 
 

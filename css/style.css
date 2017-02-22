@@ -60,6 +60,7 @@
 	animation-timing-function: linear;
 }
 
+/***************Events pannel***************/
 .event-card{
 	background-color: white;
 	padding:10px 0 10px 15px;
@@ -112,4 +113,27 @@ body{
 }
 hr{
 	margin: 0px 0 0px 0;
+}
+
+/***************Traffic pannel***************/
+.traffic-icon{
+	text-align: right;
+}
+.traffic-details{
+	text-align: left;
+	padding-left:0;
+}
+.traffic-details p{
+	padding:0px;
+	margin:0px;
+}
+.traffic{
+	margin-bottom: 15px;
+}
+
+.traffic-time{
+	font-size: 20px;
+}
+.traffic-destination{
+	font-size: 13px;
 }
