@@ -63,6 +63,7 @@ app.controller("TimeDateWeatherCtrl", function($scope, $interval, $http) {
                
  })
 
+
 function getWeatherIcon(weatherCode, sunrise, sunset) {
     var prefix = 'wi wi-';
     var code = weatherCode;
@@ -91,7 +92,16 @@ function unixTimeToTwentyFourHour(UnixTime){
     hh = d.getHours();
     return hh;
 
-  }
+}
+
+
+
+
+
+
+
+
+
 // var weatherIcons = JSON.parse( "yourjsonfile.json");
 //  var prefix = 'wi wi-';
 //   var code = resp.weather[0].id;

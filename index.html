@@ -10,7 +10,9 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css"/>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script async defer src="https://apis.google.com/js/api.js"></script>
 	<script src="js/beginner.js"></script>
+	<script src="js/eventCtrl.js"></script>
 	<script src="js/moment.js"></script>
 
 </head>
@@ -38,10 +40,47 @@
 		    		</div>
 		    		<p class="description">{{desc}}</p>
 		    	</div> 
-			    </div>
+			</div>
+			<div>
+				<!--Add buttons to initiate auth sequence and sign out-->
+				<div class="row events">
+				<hr>
+					<h3>Upcoming Events</h3>
+					<div ng-controller='eventCtrl'>
+						<div ng-repeat="event in events" >
+							<div class="event-card">
+							<div class="row">
+								<div class="col-lg-8 event-details">									
+									<p class="event-title"><b>{{ event.summary }}</b></p>
+									<p>{{ event.description }}</p>
+									<p>{{ event.location }}</p>
+								</div>
+								<div class="col-lg-4 event-date">
+									<i class="fa fa-calendar fa-2x"></i>
+									<p>{{ event.start.dateTime | date:'hh:mm' }}</p>
+						    		<p>{{ event.start.dateTime | date:'dd-MMM' }}</p>
+								</div>	
+
+							</div>							
+							</div>
+						    <p>{{ eventError }}</p>
+						</div>
+				    </div>
+				    <button id="authorize-button" class="btn mirror-btn" style="display: none;">Authorize</button>
+			    	<button id="signout-button" class="btn mirror-btn" style="display: none;">Sign Out</button>	
+				</div>
+
+			    
+			</div>
+
+
+
 		</div>
 	</div>
+	    <script async defer src="https://apis.google.com/js/api.js"></script>
 </div>
+
+
 
 
 
