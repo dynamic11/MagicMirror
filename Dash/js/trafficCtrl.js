@@ -21,7 +21,6 @@ app.controller("trafficCtrl", function($scope, $interval, $http) {
       $scope.trafficTime = response.rows[0].elements[0].duration.text;
       destination =""+ response.destinationAddresses[0];
       $scope.destination = destination.split(',')[0];
-      console.log(response);
       $scope.$apply()
 
     }

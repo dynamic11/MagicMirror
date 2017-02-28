@@ -23,6 +23,7 @@ app.controller("eventCtrl", function($scope, $interval, $http) {
        *  Initializes the API client library and sets up sign-in state
        *  listeners.
        */
+
       function initClient() {
         gapi.client.init({
           discoveryDocs: DISCOVERY_DOCS,
@@ -103,6 +104,7 @@ app.controller("eventCtrl", function($scope, $interval, $http) {
               if (!when) {
                 when =  $scope.events[i].start.date;
               }
+              $scope.when= when;
               $scope.$apply()
             }
           } else {
