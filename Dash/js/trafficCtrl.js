@@ -6,16 +6,31 @@ app.controller("trafficCtrl", function($scope, $interval, $http) {
   var destination= '55 golflinkd dr.';
   var home= 'carleton University'
   clockInterval=60000;
+  var currentDate = new Date();
 
-  getTraffic();
-  $interval(getTraffic, clockInterval);
+  $http({
+        method: 'GET',
+        url: 'js/info.json'
+     }).then(function (response){
+        setupInfo = response;
+        getTraffic();
+        $interval(getTraffic, clockInterval);
+     }, function (response){
+        alert("yoooo");
+     });
+
+     drivingOptions= {
+        departureTime: currentDate,
+        trafficModel: "bestguess"
+    }
 
   function getTraffic(isSignedIn) {
     var service = new google.maps.DistanceMatrixService;
     service.getDistanceMatrix({
-      origins: [home],
-      destinations: [destination],
+      origins: [setupInfo.data.home],
+      destinations: [setupInfo.data.destination],
       travelMode: 'DRIVING',
+      drivingOptions: drivingOptions,
       unitSystem: google.maps.UnitSystem.METRIC,
       avoidHighways: false,
       avoidTolls: false
