@@ -49,10 +49,13 @@ app.controller("eventCtrl", function($scope, $interval, $http) {
           authorizeButton.style.display = 'none';
           signoutButton.style.display = 'block';
           listUpcomingEvents();
+          $scope.$apply();
         } else {
-          $scope.eventError = "Please Sign In";
+          $scope.events.length=0;
+          $scope.$apply();
           authorizeButton.style.display = 'block';
           signoutButton.style.display = 'none';
+          
         }
       }
 
@@ -105,7 +108,7 @@ app.controller("eventCtrl", function($scope, $interval, $http) {
                 when =  $scope.events[i].start.date;
               }
               $scope.when= when;
-              $scope.$apply()
+              $scope.$apply();
             }
           } else {
             $scope.eventError = "No upcoming events found";
