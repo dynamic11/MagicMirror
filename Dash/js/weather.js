@@ -9,7 +9,6 @@ app.controller("TimeDateWeatherCtrl", function($scope, $interval, $http) {
       url: 'js/weatherIcons.json'
    }).then(function (response){
       weatherIcons = response;
-      console.log(weatherIcons);
    });
     
     function getTimeDateWeather() {
@@ -175,5 +174,3 @@ function unixTimeToTwentyFourHour(UnixTime){
     //             $scope.icon = weatherIcon;
   
     // });
-
-}
