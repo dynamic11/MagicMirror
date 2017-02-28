@@ -14,6 +14,7 @@ app.controller("eventCtrl", function($scope, $interval, $http) {
       var authorizeButton = document.getElementById('authorize-button');
       var signoutButton = document.getElementById('signout-button');
       $scope.events = new Array();
+      clockInterval=60000;
       /**
        *  On load, called to load the auth2 library and API client library.
        */
@@ -49,6 +50,7 @@ app.controller("eventCtrl", function($scope, $interval, $http) {
           authorizeButton.style.display = 'none';
           signoutButton.style.display = 'block';
           listUpcomingEvents();
+          $interval(listUpcomingEvents, clockInterval);
           $scope.$apply();
         } else {
           $scope.events.length=0;
@@ -99,6 +101,7 @@ app.controller("eventCtrl", function($scope, $interval, $http) {
           'maxResults': 5,
           'orderBy': 'startTime'
         }).then(function(response) {
+          $scope.events.length=0;
           var events = response.result.items;
           if (events.length > 0) {
             for (i = 0; i < events.length; i++) {
@@ -107,7 +110,7 @@ app.controller("eventCtrl", function($scope, $interval, $http) {
               if (!when) {
                 when =  $scope.events[i].start.date;
               }
-              $scope.when= when;
+              $scope.events[i].when= when;
               $scope.$apply();
             }
           } else {
