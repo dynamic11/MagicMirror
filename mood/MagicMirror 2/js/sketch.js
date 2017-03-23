@@ -8,14 +8,14 @@ var colorList = [];
 /* create a variable colourPick */
 var colourPick;
 /* initialize the number of balls to be pushed into the ballObjects Array */
-var numOfballObjects = 80;
+var numOfballObjects = 15;
 /* create an array to hold the ballObjects */
 var balls = [];
 
 function initializeSetup(){
   for(var i = 0; i < numOfballObjects; i++){
     balls.push(new ballObjects(windowWidth/2, windowHeight/2,
-      random(50), random(2)));
+      random(50), random(1)));
   }
   for(var i = 0; i < 100; i++){
     colorList.push(color(Math.floor(random(255)), Math.floor(random(255)), Math.floor(random(255)), Math.floor(random(100))));
@@ -27,7 +27,7 @@ function initializeSetup(){
       /* set colour pick to a random colourList array element every 1.5 second */
       colourPick = colorList[Math.floor(Math.random()*colorList.length)];
   },
-  2500);
+  5500);
 }
 
 function setup() {
