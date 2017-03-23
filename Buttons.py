@@ -5,8 +5,8 @@ import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
-button1 = 4
-button2 = 17
+button1 = 27
+button2 = 22
 
 GPIO.setup(button1, GPIO.IN, GPIO.PUD_UP)
 GPIO.setup(button2, GPIO.IN, GPIO.PUD_UP)
@@ -19,7 +19,7 @@ while True:
     else:
         print("LOW")
         #p.kill()
-        p = subprocess.Popen(["firefox", "localhost:8000"])
+        p = subprocess.Popen(["chromium", "localhost:8000"])
         #url = 'http://www.nba.ca/'
         #webbrowser.open_new_tab(url + 'culearn/')
         #webbrowser.open_new(url)
@@ -29,7 +29,7 @@ while True:
     else:
         print("low")
         p.kill()
-        p = subprocess.Popen(["firefox", "www.carleton.ca"])
+        p = subprocess.Popen(["chromium", "file:///home/pi/Code/MagicMirror/mood/index.html"])
         #webbrowser.open_new_tab(url + 'doc/')
         #webbrowser.close()
         #webbrowser.open_new(url)

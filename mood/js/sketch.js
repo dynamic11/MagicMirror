@@ -8,14 +8,15 @@ var colorList = [];
 /* create a variable colourPick */
 var colourPick;
 /* initialize the number of balls to be pushed into the ballObjects Array */
-var numOfballObjects = 15;
+var numOfballObjects = 50;
+var ballspeed = 1.5;
 /* create an array to hold the ballObjects */
 var balls = [];
 
 function initializeSetup(){
   for(var i = 0; i < numOfballObjects; i++){
     balls.push(new ballObjects(windowWidth/2, windowHeight/2,
-      random(50), random(1)));
+      random(50), ballspeed));
   }
   for(var i = 0; i < 100; i++){
     colorList.push(color(Math.floor(random(255)), Math.floor(random(255)), Math.floor(random(255)), Math.floor(random(100))));
@@ -51,12 +52,12 @@ function draw() {
     if(balls[i].getXPos() > windowWidth || balls[i].getXPos() <= 0){
       balls.splice(i, 1);
       balls.push(new ballObjects(random(windowWidth), random(windowHeight),
-          random(40), random(2)));
+          random(40), ballspeed));
     }
     if(balls[i].getYPos() > windowHeight || balls[i].getYPos() <= 0){
       balls.splice(i, 1);
       balls.push(new ballObjects(random(windowWidth), random(windowHeight),
-        random(30), random(2)));
+        random(30), ballspeed));
     }
   }
 }

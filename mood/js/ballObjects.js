@@ -3,8 +3,9 @@ function ballObjects(x, y, size, speed){
   this.y = y;
   this.s = size;
   this.colour = color(random(255), random(255), random(255), random(255));
+do{
   this.speed = random(-speed, speed);
-
+}while(this.speed <0.5 && this.speed >-0.5)
   this.show = function(){
     noStroke();
     fill(this.colour);
