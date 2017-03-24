@@ -12,23 +12,45 @@ var numOfballObjects = 50;
 var ballspeed = 1.5;
 /* create an array to hold the ballObjects */
 var balls = [];
+animation =Math.floor((Math.random() * 5) + 1);
+var p=0;
 
 function initializeSetup(){
-  for(var i = 0; i < numOfballObjects; i++){
-    balls.push(new ballObjects(windowWidth/2, windowHeight/2,
-      random(50), ballspeed));
+  fill(255);
+  text("Attention, please.", 50, 200);
+  text(animation,windowWidth/2,windowHeight/2);
+  if(animation==1){
+      for(var i = 0; i < numOfballObjects; i++){
+        balls.push(new ballObjects(random(windowWidth), windowHeight+20,random(50), ballspeed, animation));
+      }
+  }else if(animation==2){
+      for(var i = 0; i < numOfballObjects; i++){
+        balls.push(new ballObjects(random(windowWidth), -20,random(50), ballspeed, animation));
+      }
+  }else if(animation==3){
+      for(var i = 0; i < numOfballObjects; i++){
+        balls.push(new ballObjects(random(windowWidth), windowHeight,random(50), ballspeed, animation));
+      }
+  }else if(animation==4){
+    for(var i = 0; i < numOfballObjects; i++){
+        balls.push(new ballObjects(random(windowWidth), random(windowHeight),random(50), ballspeed, animation));
+      }
+  }else if(animation==5){
+    for(var i = 0; i < numOfballObjects; i++){
+        balls.push(new ballObjects(windowWidth/2, windowHeight/2,random(50), ballspeed, animation));
+      }
   }
-  for(var i = 0; i < 100; i++){
-    colorList.push(color(Math.floor(random(255)), Math.floor(random(255)), Math.floor(random(255)), Math.floor(random(100))));
-  }
+  // for(var i = 0; i < 100; i++){
+  //   colorList.push(color(Math.floor(random(255)), Math.floor(random(255)), Math.floor(random(255)), Math.floor(random(100))));
+  // }
   /* Default colour picked randomly and set to the variable colourPick */
-  colourPick = color(Math.floor(random(255)), Math.floor(random(255)));
+  //colourPick = color(Math.floor(random(255)), Math.floor(random(255)));
   /* setInterval function to choose a random colour from the array every 1500 milliSeconds(1.5 Second)*/
-  setInterval( function(){
+  //setInterval( function(){
       /* set colour pick to a random colourList array element every 1.5 second */
-      colourPick = colorList[Math.floor(Math.random()*colorList.length)];
-  },
-  5500);
+      //colourPick = colorList[Math.floor(Math.random()*colorList.length)];
+  //},
+  //5500);
 }
 
 function setup() {
@@ -44,20 +66,54 @@ function windowResized(){
 
 function draw() {
   /* Set body background to colourPick */
-  background(colourPick);
+  background("#000");
+  p++;
+
+  if(p<100){
+    fill(255);
+    textSize(30);
+    textAlign(CENTER, CENTER);
+    switch(animation){
+      case 1:
+        text("Lava Lamp",windowWidth/2,windowHeight/2);
+        break;
+      case 2:
+        text("Rain",windowWidth/2,windowHeight/2);
+        break;
+      case 3:
+        text("In The Wind",windowWidth/2,windowHeight/2);
+        break;
+      case 4:
+        text("Floating",windowWidth/2,windowHeight/2);
+        break;
+      case 5:
+        text("Firefly",windowWidth/2,windowHeight/2);
+        break;
+    }
+  }
+  //animation=Math.floor((Math.random() * 2) + 1);
   /* set text font to 30px */
   for(var i = 0; i < balls.length; i++){
     balls[i].show();
     balls[i].move();
-    if(balls[i].getXPos() > windowWidth || balls[i].getXPos() <= 0){
+
+    if(balls[i].getXPos() > windowWidth+50||
+       balls[i].getXPos() <= -50 || 
+       balls[i].getYPos() > windowHeight+50|| 
+       balls[i].getYPos() <= -50 ){
+
       balls.splice(i, 1);
-      balls.push(new ballObjects(random(windowWidth), random(windowHeight),
-          random(40), ballspeed));
-    }
-    if(balls[i].getYPos() > windowHeight || balls[i].getYPos() <= 0){
-      balls.splice(i, 1);
-      balls.push(new ballObjects(random(windowWidth), random(windowHeight),
-        random(30), ballspeed));
+      if(animation==1){
+        balls.push(new ballObjects(random(windowWidth), windowHeight+20,random(50), ballspeed, animation));
+      }else if(animation==2){
+        balls.push(new ballObjects(random(windowWidth), -20,random(50), ballspeed, animation));
+      }else if(animation==3){
+        balls.push(new ballObjects(random(windowWidth+45), windowHeight,random(50), ballspeed, animation));
+      }else if(animation==4){
+        balls.push(new ballObjects(random(windowWidth), random(windowHeight) ,random(50), ballspeed, animation));
+      }else if(animation==5){
+        balls.push(new ballObjects(windowWidth/2, windowHeight/2,random(50), ballspeed, animation));
+      }
     }
   }
 }
