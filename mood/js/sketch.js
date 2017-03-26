@@ -12,7 +12,7 @@ var numOfballObjects = 50;
 var ballspeed = 1.5;
 /* create an array to hold the ballObjects */
 var balls = [];
-animation =Math.floor((Math.random() * 5) + 1);
+animation = Math.floor((Math.random() * 5) + 1);
 var p=0;
 
 function initializeSetup(){
@@ -75,7 +75,7 @@ function draw() {
     textAlign(CENTER, CENTER);
     switch(animation){
       case 1:
-        text("Lava Lamp",windowWidth/2,windowHeight/2);
+        text("Bubbles",windowWidth/2,windowHeight/2);
         break;
       case 2:
         text("Rain",windowWidth/2,windowHeight/2);
