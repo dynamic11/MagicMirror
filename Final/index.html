@@ -1,97 +1,16 @@
 <!doctype html>
-<html ng-app="myApp">
+<html>
 <head>
 <title>IntMirror</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/weather-icons-master/css/weather-icons.css" >
-	<link rel="stylesheet" type="text/css" href="css/icons/icon.css" >
-	<link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/style.css"/>
-	<script src="js/vendor/AngularJS/angular.min.js"></script>
-	<script src="js/vendor/jQuery/jQuery-3.2.0.min.js"></script>
-	<script src="https://apis.google.com/js/api.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCy9i034B3wFW1FWBMWEcM27UHOrj0pJDI"></script>
-	<script src="js/weather.js"></script>
-	<script src="js/eventCtrl.js"></script>
-	<script src="js/trafficCtrl.js"></script>
-	<script src="js/moment.js"></script>
+	
+	
 </head>
 <body>
 <div class="container">
 	<div class="row">
-		<div class="col-lg-7">
-		</div>
-		<div class="col-lg-5">
-			<div ng-controller='TimeDateWeatherCtrl'>
-				<div class="row clock">
-				    <p class="time">{{ clock }}</p>
-				    <p class="date">{{ date }}</p>
-				</div>
-		    	<div class="row weather">
-		    		<div class="col-lg-5">
-		    			<i class ="{{icon}} weather-symbol" id="test"></i> 
-		    		</div>
-		    		<div class="col-lg-7 temperature">
-		    			<p class="current-temperature">{{temp}} &#176</p>
-		    			<p class="day-temperature">
-		    				<i class="icon-thermometer-full"></i>{{high}} &#176 &nbsp
-		    				<i class="icon-thermometer-empty"></i>{{low}} &#176
-		    			</p>
-		    		</div>
-		    		<p class="description">{{desc}}</p>
-		    	</div> 
-			</div>
-			<div>
-
-			<div class="row traffic">
-				<hr>
-				<h3>Traffic</h3>
-				<div ng-controller='trafficCtrl'>
-					<div class="row">
-						<div class="col-lg-2 traffic-icon">									
-							<i class = "icon-location-arrow"></i>
-						</div>
-						<div class="col-lg-10 traffic-details">
-							<p class="traffic-time"><b>{{ trafficTime }}</b></p>
-				    		<p class="traffic-destination">{{ destination }}</p>
-						</div>	
-					</div>	
-			    </div>		    
-			</div>
-				<!--Add buttons to initiate auth sequence and sign out-->
-			<div class="row events">
-				<hr>
-					<h3>Upcoming Events</h3>
-					<div ng-controller='eventCtrl'>
-						<div ng-repeat="event in events" >
-							<div class="event-card">
-							<div class="row">
-								<div class="col-lg-8 event-details">									
-									<p class="event-title"><b>{{ event.summary }}</b></p>
-									<p>{{ event.description }}</p>
-									<p>{{ event.location }}</p>
-								</div>
-								<div class="col-lg-4 event-date">
-									<i class="icon-calendar-o"></i>
-									<p>{{ event.when | date:'hh:mm' }}</p>
-						    		<p>{{ event.when | date:'dd-MMM' }}</p>
-								</div>	
-
-							</div>							
-							</div>
-						    <p>{{ eventError }}</p>
-						</div>
-				    </div>
-				    <button id="authorize-button" class="btn mirror-btn" style="display: none;">Authorize</button>
-			    	<button id="signout-button" class="btn mirror-btn" style="display: none;">Sign Out</button>	
-				</div>  
-			</div>
-
-
-
-		</div>
 	</div>
-	    <script async defer src="https://apis.google.com/js/api.js"></script>
 </div>
 </body>
 
