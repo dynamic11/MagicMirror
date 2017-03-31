@@ -40,12 +40,18 @@ while True:
             state=0
     else:
         print("Display ON")
-        #if display is currently not on Dash
-        if state != 1: 
-            #turn display Dash
-            shutil.copy2('pages/index_dash.html', "index.html")
-            refreshPage ()
-            state=1
+        if button1_state != GPIO.HIGH or state == 0:
+            if state != 1: 
+                #turn display Dash
+                shutil.copy2('pages/index_dash.html', "index.html")
+                refreshPage ()
+                state=1
+        elif button2_state != GPIO.HIGH:
+            if state != 2: 
+                #turn display Dash
+                shutil.copy2('pages/index_mood.html', "index.html")
+                refreshPage ()
+                state=2
     time.sleep(0.5)
 
 
