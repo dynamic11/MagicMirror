@@ -6,7 +6,7 @@ app.controller("TimeDateWeatherCtrl", function($scope, $interval, $http) {
 
    $http({
       method: 'GET',
-      url: 'js/weatherIcons.json'
+      url: 'js/dashJS/weatherIcons.json'
    }).then(function (response){
       weatherIcons = response;
    });

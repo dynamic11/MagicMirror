@@ -10,7 +10,7 @@ app.controller("trafficCtrl", function($scope, $interval, $http) {
 
   $http({
         method: 'GET',
-        url: 'js/info.json'
+        url: 'js/dashJS/info.json'
      }).then(function (response){
         setupInfo = response;
         getTraffic();
