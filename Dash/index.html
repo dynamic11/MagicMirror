@@ -1,23 +1,20 @@
 <!doctype html>
 <html ng-app="myApp">
 <head>
-<title>Hello Angular</title>
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/darkly/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/owfont-master/css/owfont-regular.css" >
+<title>IntMirror</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="css/weather-icons-master/css/weather-icons.css" >
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
+	<link rel="stylesheet" type="text/css" href="css/icons/icon.css" >
 	<link href="https://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="css/style.css"/>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="js/vendor/AngularJS/angular.min.js"></script>
+	<script src="js/vendor/jQuery/jQuery-3.2.0.min.js"></script>
 	<script src="https://apis.google.com/js/api.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCy9i034B3wFW1FWBMWEcM27UHOrj0pJDI"></script>
 	<script src="js/weather.js"></script>
 	<script src="js/eventCtrl.js"></script>
 	<script src="js/trafficCtrl.js"></script>
 	<script src="js/moment.js"></script>
-
-
 </head>
 <body>
 <div class="container">
@@ -37,8 +34,8 @@
 		    		<div class="col-lg-7 temperature">
 		    			<p class="current-temperature">{{temp}} &#176</p>
 		    			<p class="day-temperature">
-		    				<i class="fa fa-thermometer-full"></i>{{high}} &#176 &nbsp
-		    				<i class="fa fa-thermometer-empty"></i>{{low}} &#176
+		    				<i class="icon-thermometer-full"></i>{{high}} &#176 &nbsp
+		    				<i class="icon-thermometer-empty"></i>{{low}} &#176
 		    			</p>
 		    		</div>
 		    		<p class="description">{{desc}}</p>
@@ -52,7 +49,7 @@
 				<div ng-controller='trafficCtrl'>
 					<div class="row">
 						<div class="col-lg-2 traffic-icon">									
-							<i class = "fa fa-car fa-3x"></i>
+							<i class = "icon-location-arrow"></i>
 						</div>
 						<div class="col-lg-10 traffic-details">
 							<p class="traffic-time"><b>{{ trafficTime }}</b></p>
@@ -75,7 +72,7 @@
 									<p>{{ event.location }}</p>
 								</div>
 								<div class="col-lg-4 event-date">
-									<i class="fa fa-calendar fa-2x"></i>
+									<i class="icon-calendar-o"></i>
 									<p>{{ event.when | date:'hh:mm' }}</p>
 						    		<p>{{ event.when | date:'dd-MMM' }}</p>
 								</div>	
