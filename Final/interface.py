@@ -15,10 +15,10 @@ state=1
 
 def refreshPage ():
     k.press_key(k.control_key)
-    k.press_key(k.shift_key)
+    #k.press_key(k.shift_key)
     k.tap_key('R')
     k.release_key(k.control_key)
-    k.release_key(k.shift_key)
+    #k.release_key(k.shift_key)
 
 GPIO.setup(button1, GPIO.IN, GPIO.PUD_UP)
 GPIO.setup(button2, GPIO.IN, GPIO.PUD_UP)
