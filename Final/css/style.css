@@ -1,0 +1,141 @@
+/***************clock pannel***************/
+.clock{
+	margin:10px 0 0 0;
+}
+.time{
+	font-size: 60px;
+	margin:10px 0 -10px 0;
+	padding:0;
+	font-style: 'Lato';
+	font-weight: 300;
+}
+.date{
+	font-size: 30px;
+	margin:0;
+	padding:0;
+	font-style: 'Lato';
+	font-weight: 300;
+}
+
+/***************weather pannel***************/
+.weather{
+	margin-top: 40px;
+	font-style: 'Lato';
+	font-weight: 300;
+}
+.current-temperature{
+	padding: 15px 0 0 0;
+	font-size: 100px;
+	margin:0px;
+	line-height: 100px;
+}
+.day-temperature {
+	font-size: 30px;
+	font-weight: 100;
+}
+.day-temperature i {
+	font-size: 25px;
+	margin-right:7px;
+}
+.weather-symbol{
+	padding: 25px 0 30px 10px;
+	margin:0px 0 0 0;
+	font-size: 110px;
+}
+.description{
+	font-size: 30px;
+	margin-top:10px;
+}
+
+@keyframes pulse_animation {
+	0% { transform: scale(1); }
+	50% { transform: scale(1.08); }
+	100% { transform: scale(1); }
+}
+.pulse {
+	animation-name: pulse_animation;
+	animation-duration: 6000ms;
+	transform-origin:70% 70%;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+/***************Events pannel***************/
+.event-card{
+	background-color: white;
+	padding:10px 0 10px 15px;
+	color:black;
+	border-radius: 5px;
+	height:auto;
+}
+
+.mirror-btn{
+	background-color:black;
+	color:white;
+	border-style: solid;
+    border-color: white;
+    border-width: 1px;
+}
+body{
+	background-color: black;
+}
+
+.event-details p{
+	padding:0;
+	margin:0;
+	font-weight:300;
+}
+.event-title{
+	padding:0;
+	margin:0;
+	font-weight:300;
+}
+.event-date{
+	padding-top:3px;
+	text-align:center;
+	
+}
+.event-date i{
+	font-size: 17px;
+	font-weight:300;
+}
+.event-date p{
+	padding:0px;
+	margin:0px;
+	font-size: 13px;
+	font-weight:300;
+}
+.events{
+	padding-top:2px;
+}
+.events h3{
+	margin:20px 0 20px 0;
+}
+hr{
+	margin: 0px 0 0px 0;
+}
+
+/***************Traffic pannel***************/
+.traffic-icon{
+	text-align: center;
+	font-size:40px;
+}
+.traffic-details{
+	text-align: left;
+	padding-left:0;
+	padding-top:2px;
+}
+.traffic-details p{
+	padding:0px;
+	margin:0px;
+}
+.traffic{
+	margin-bottom: 15px;
+}
+
+.traffic-time{
+	font-size: 20px;
+}
+.traffic-destination{
+	font-size: 13px;
+}
