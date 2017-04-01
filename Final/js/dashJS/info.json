@@ -2,5 +2,6 @@
 	"init":"yes",
 	"city":"Ottawa",
 	"home":"Carleton University",
-	"destination":"55 Golflinks Dr."
+	"destination":"55 Golflinks Dr.",
+	"mood":1
 }

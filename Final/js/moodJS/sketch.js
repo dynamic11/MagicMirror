@@ -12,7 +12,11 @@ var numOfballObjects = 50;
 var ballspeed = 1.5;
 /* create an array to hold the ballObjects */
 var balls = [];
-animation = Math.floor((Math.random() * 5) + 1);
+animation = 1;
+
+$.getJSON("http://localhost:8000/js/dashJS/info.json", function(data){
+    animation=data.mood;
+});
 var p=0;
 
 function initializeSetup(){
