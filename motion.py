@@ -4,22 +4,21 @@ import subprocess
 import webbrowser
 
 
-pir_sensor = 11
-piezo = 7
+pir_sensor = 18
+#piezo = 7
 
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(piezo, GPIO.OUT)
+#GPIO.setup(piezo, GPIO.OUT)
 
 
-GPIO.setup(piezo, GPIO.OUT)
+#GPIO.setup(piezo, GPIO.OUT)
 GPIO.setup(pir_sensor, GPIO.IN)
 current_state = 1
 check0 = 0
 check1 = 0
 
 pstatus = 0
-try: #http://localhost:8000/
-        
+try:        
                
         while True:
                 
@@ -48,9 +47,9 @@ try: #http://localhost:8000/
                                 current_state = GPIO.input(pir_sensor)
                                 if current_state == 1:
                                         break        
-                        GPIO.output(piezo, GPIO.HIGH)
+                        #GPIO.output(piezo, GPIO.HIGH)
                         time.sleep(3)
-                        GPIO.output(piezo, False)
+                        #GPIO.output(piezo, False)
                         time.sleep(2)
                 if current_state == 1:
                         check1 = check1 + 1
