@@ -14,15 +14,13 @@ var ballspeed = 1.5;
 var balls = [];
 animation = 1;
 
-$.getJSON("http://localhost:8000/js/dashJS/info.json", function(data){
-    animation=data.mood;
-});
 var p=0;
 
 function initializeSetup(){
-  fill(255);
-  text("Attention, please.", 50, 200);
-  text(animation,windowWidth/2,windowHeight/2);
+
+  $.getJSON("http://localhost:8000/js/dashJS/info.json", function(data){
+    animation=data.mood;
+
   if(animation==1){
       for(var i = 0; i < numOfballObjects; i++){
         balls.push(new ballObjects(random(windowWidth), windowHeight+20,random(50), ballspeed, animation));
@@ -44,17 +42,7 @@ function initializeSetup(){
         balls.push(new ballObjects(windowWidth/2, windowHeight/2,random(50), ballspeed, animation));
       }
   }
-  // for(var i = 0; i < 100; i++){
-  //   colorList.push(color(Math.floor(random(255)), Math.floor(random(255)), Math.floor(random(255)), Math.floor(random(100))));
-  // }
-  /* Default colour picked randomly and set to the variable colourPick */
-  //colourPick = color(Math.floor(random(255)), Math.floor(random(255)));
-  /* setInterval function to choose a random colour from the array every 1500 milliSeconds(1.5 Second)*/
-  //setInterval( function(){
-      /* set colour pick to a random colourList array element every 1.5 second */
-      //colourPick = colorList[Math.floor(Math.random()*colorList.length)];
-  //},
-  //5500);
+});
 }
 
 function setup() {

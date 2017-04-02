@@ -39,36 +39,36 @@ def changeState (nextState):
         refreshPage ()
     elif nextState == 2:
         for line in fileinput.FileInput("js/dashJS/info.json",inplace=1):
-            line =line.replace('"mood":1','"mood":1')
-            print line;
+            line =line.replace(":5",":1")
+            print (line,end='')
             #display display black
             shutil.copy2('pages/index_mood.html', "index.html")
             refreshPage ()
     elif nextState==3:
         for line in fileinput.FileInput("js/dashJS/info.json",inplace=1):
-            line =line.replace('"mood":1','"mood":2')
-            print line;
+            line =line.replace(":1",":2")
+            print (line,end='')
             #display display black
             shutil.copy2('pages/index_mood.html', "index.html")
             refreshPage ()        
     elif nextState==4:
         for line in fileinput.FileInput("js/dashJS/info.json",inplace=1):
-            line =line.replace('"mood":2','"mood":3')
-            print line;
+            line =line.replace(":2",":3")
+            print (line,end='')
             #display display black
             shutil.copy2('pages/index_mood.html', "index.html")
             refreshPage ()
     elif nextState==5:
         for line in fileinput.FileInput("js/dashJS/info.json",inplace=1):
-            line =line.replace('"mood":3','"mood":4')
-            print line;
+            line =line.replace(":3",":4")
+            print (line,end='')
             #display display black
             shutil.copy2('pages/index_mood.html', "index.html")
             refreshPage ()
     elif nextState==6:
         for line in fileinput.FileInput("js/dashJS/info.json",inplace=1):
-            line =line.replace('"mood":4','"mood":5')
-            print line;
+            line =line.replace(":4",":5")
+            print (line,end='')
             #display display black
             shutil.copy2('pages/index_mood.html', "index.html")
             refreshPage ()
